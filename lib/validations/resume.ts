@@ -21,8 +21,8 @@ export const address = z
 export const phone = z
   .string()
   .trim()
-  .regex(/^\+?[0-9]\d{8,14}$/, {
-    message: "Phone number must be a valid number between 9-15 digits",
+  .regex(/^\+?[0-9]\d{1,4}[-\s]?\(?[0-9]\d{1,4}\)?[-\s]?[0-9]\d{3,10}$/, {
+    message: "Please enter a valid international phone number format (e.g., +1 234-567-8901)",
   });
 
 export const email = z.string().email({ message: "Invalid email address" });
