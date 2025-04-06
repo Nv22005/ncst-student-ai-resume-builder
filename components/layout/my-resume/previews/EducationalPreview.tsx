@@ -7,12 +7,7 @@ const EducationalPreview = () => {
 
   return (
     <div className="my-6">
-      <h2
-        className="text-center font-bold text-sm mb-2"
-        style={{
-          color: formData?.themeColor || themeColors[0],
-        }}
-      >
+      <h2 className="text-center font-bold text-sm mb-2 text-black">
         Education
       </h2>
       <hr
@@ -23,15 +18,10 @@ const EducationalPreview = () => {
 
       {formData?.education.map((education: any, index: number) => (
         <div key={index} className="my-5">
-          <h2
-            className="text-sm font-bold"
-            style={{
-              color: formData?.themeColor || themeColors[0],
-            }}
-          >
+          <h2 className="text-sm font-bold text-black">
             {education.universityName}
           </h2>
-          <h2 className="text-xs flex justify-between">
+          <h2 className="text-xs flex justify-between text-black">
             {education?.degree}
             {education?.degree && education?.major && " in "}
             {education?.major}
@@ -46,7 +36,7 @@ const EducationalPreview = () => {
             </span>
           </h2>
           {education?.description && (
-            <p className="text-xs my-2 text-justify">{education?.description}</p>
+            <p className="text-xs my-2 text-justify text-black">{education?.description}</p>
           )}
         </div>
       ))}

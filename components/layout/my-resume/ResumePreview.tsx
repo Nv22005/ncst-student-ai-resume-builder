@@ -9,6 +9,7 @@ import ExperiencePreview from "./previews/ExperiencePreview";
 import EducationalPreview from "./previews/EducationalPreview";
 import { themeColors } from "@/lib/utils";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 const ResumePreview = ({ download = false }) => {
   const { formData, setActiveFormIndex } = useFormContext();
@@ -59,26 +60,42 @@ const ResumePreview = ({ download = false }) => {
     <div className="flex items-center justify-center">
       <div
         className={`${
-          download ? "p-12" : "p-12"
-        } shadow-lg border-t-[20px] bg-white w-[210mm] min-h-[297mm] print:shadow-none`}
-        style={{
-          borderColor: formData?.themeColor || themeColors[0],
-        }}
+          download ? "p-8" : "p-12"
+        } shadow-lg bg-white w-[210mm] h-[297mm] print:shadow-none print:h-[297mm] print:overflow-hidden`}
       >
-        {sections.map(
-          ({ index, component, condition }) =>
-            condition && (
-              <div
-                key={index}
-                onClick={
-                  isEditMode ? () => setActiveFormIndex(index) : undefined
-                }
-                className={interactiveClass}
-              >
-                {component}
-              </div>
-            )
-        )}
+        <div 
+          className="border-t-[10px] border-b-[10px] mb-2"
+          style={{
+            borderTopColor: formData?.themeColor || themeColors[0],
+            borderBottomColor: formData?.themeColor || themeColors[0],
+          }}
+        />
+        <div className="flex justify-center mb-4">
+          <div className="relative w-[35px] h-[35px]">
+            <Image 
+              src="/icons/logo.png" 
+              alt="ResumeAI Logo" 
+              fill
+              style={{ objectFit: 'contain' }}
+            />
+          </div>
+        </div>
+        <div className="h-[calc(297mm-120px)] overflow-y-auto print:overflow-hidden">
+          {sections.map(
+            ({ index, component, condition }) =>
+              condition && (
+                <div
+                  key={index}
+                  onClick={
+                    isEditMode ? () => setActiveFormIndex(index) : undefined
+                  }
+                  className={interactiveClass}
+                >
+                  {component}
+                </div>
+              )
+          )}
+        </div>
       </div>
     </div>
   );

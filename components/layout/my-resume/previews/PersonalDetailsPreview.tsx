@@ -8,43 +8,25 @@ function PersonalDetailsPreview() {
   return (
     <div>
       <h2
-        className="font-bold text-xl text-center"
-        style={{
-          color: formData?.themeColor || themeColors[0],
-        }}
+        className="font-bold text-xl text-center text-black"
       >
         {formData?.firstName} {formData?.lastName}
       </h2>
 
-      <h2 className="text-center text-sm font-medium">
+      <h2 className="text-center text-sm font-medium text-black">
         {formData?.jobTitle}
       </h2>
 
-      <h2
-        className="text-center font-normal text-xs"
-        style={{
-          color: formData?.themeColor || themeColors[0],
-        }}
-      >
+      <h2 className="text-center font-normal text-xs text-black">
         {formData?.address}
       </h2>
 
       <div className="flex justify-between">
-        <h2
-          className="font-normal text-xs"
-          style={{
-            color: formData?.themeColor || themeColors[0],
-          }}
-        >
+        <h2 className="font-normal text-xs text-black">
           {formData?.phone}
         </h2>
 
-        <h2
-          className="font-normal text-xs"
-          style={{
-            color: formData?.themeColor || themeColors[0],
-          }}
-        >
+        <h2 className="font-normal text-xs text-black">
           {formData?.email}
         </h2>
       </div>

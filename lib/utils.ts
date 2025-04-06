@@ -6,6 +6,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export const themeColors = [
+  "#000000", // Black
   "#90A4AE", // Light Grey Blue
   "#E57373", // Light Red
   "#64B5F6", // Light Blue

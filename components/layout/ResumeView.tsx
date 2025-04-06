@@ -50,8 +50,19 @@ const FinalResumeView: React.FC<FinalResumeViewProps> = ({
         }_Resume.pdf`
       )}`,
       image: { type: "jpeg", quality: 0.98 },
-      html2canvas: { scale: 2 },
-      jsPDF: { unit: "in", format: "a4", orientation: "portrait" },
+      html2canvas: { 
+        scale: 2,
+        useCORS: true,
+        logging: false,
+        windowWidth: 210 * 3.78, // A4 width in pixels (210mm * 3.78 pixels per mm)
+        windowHeight: 297 * 3.78, // A4 height in pixels (297mm * 3.78 pixels per mm)
+      },
+      jsPDF: { 
+        unit: "mm", 
+        format: "a4", 
+        orientation: "portrait",
+        compress: true
+      },
     };
 
     if (element) {
@@ -120,7 +131,7 @@ const FinalResumeView: React.FC<FinalResumeViewProps> = ({
             </div>
           </div>
           <div className="px-10 pt-4 pb-16 max-sm:px-5 max-sm:pb-8 print:p-0">
-            <div id="print-area">
+            <div id="print-area" className="w-[210mm] h-[297mm] overflow-hidden">
               <ResumePreview download={download} />
             </div>
           </div>
