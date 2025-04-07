@@ -13,7 +13,9 @@ export const metadata: Metadata = {
   description:
     "Generate a polished, professional resume in just a few clicks with our AI-powered resume builder.",
   icons: {
-    icon: "/icons/favicon.ico",
+    icon: "/icons/logo.png",
+    shortcut: "/icons/logo.png",
+    apple: "/icons/logo.png",
   },
 };
 
