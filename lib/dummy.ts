@@ -3,7 +3,7 @@ export const DummyResume = {
   lastName: "Carter",
   jobTitle: "full stack developer",
   address: "525 N tryon Street, NC 28117",
-  phone: "+1 (123)-456-7890",
+  phone: "+973 1234-5678",
   email: "exmaple@gmail.com",
   themeColor: "#ff6666",
   summary:

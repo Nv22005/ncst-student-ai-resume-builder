@@ -9,7 +9,7 @@ export const personalDetailFields = [
   { name: "lastName", label: "Last Name", type: "text", fullWidth: false },
   { name: "jobTitle", label: "Job Title", type: "text", fullWidth: true },
   { name: "address", label: "Address", type: "text", fullWidth: true },
-  { name: "phone", label: "Phone", type: "number", fullWidth: false },
+  { name: "phone", label: "Phone", type: "text", fullWidth: false },
   { name: "email", label: "Email", type: "email", fullWidth: false },
 ] as const;
 

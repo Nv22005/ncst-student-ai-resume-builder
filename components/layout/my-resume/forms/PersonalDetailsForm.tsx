@@ -34,7 +34,7 @@ const PersonalDetailsForm = ({ params }: { params: { id: string } }) => {
       lastName: "",
       jobTitle: "",
       address: "",
-      phone: "",
+      phone: "+973 ",
       email: "",
     },
   });
@@ -46,7 +46,7 @@ const PersonalDetailsForm = ({ params }: { params: { id: string } }) => {
         lastName: formData?.lastName || "",
         jobTitle: formData?.jobTitle || "",
         address: formData?.address || "",
-        phone: formData?.phone || "",
+        phone: formData?.phone || "+973 ",
         email: formData?.email || "",
       });
     }
@@ -99,20 +99,44 @@ const PersonalDetailsForm = ({ params }: { params: { id: string } }) => {
                       {field.label}:
                     </FormLabel>
                     <FormControl>
-                      <Input
-                        type={field.type}
-                        className={`no-focus ${
-                          form.formState.errors[field.name]
-                            ? "error"
-                            : "border-gray-300 bg-white"
-                        }`}
-                        autoComplete="off"
-                        {...formField}
-                        onChange={(e) => {
-                          formField.onChange(e);
-                          handleInputChange(e);
-                        }}
-                      />
+                      {field.name === "phone" ? (
+                        <Input
+                          type="text"
+                          className={`no-focus ${
+                            form.formState.errors[field.name]
+                              ? "error"
+                              : "border-gray-300 bg-white"
+                          }`}
+                          autoComplete="off"
+                          {...formField}
+                          value={formField.value || "+973 "}
+                          onChange={(e) => {
+                            // Ensure country code is always present
+                            let value = e.target.value;
+                            if (!value.startsWith("+973")) {
+                              value = "+973 " + value.replace("+973", "");
+                            }
+                            e.target.value = value;
+                            formField.onChange(e);
+                            handleInputChange(e);
+                          }}
+                        />
+                      ) : (
+                        <Input
+                          type={field.type}
+                          className={`no-focus ${
+                            form.formState.errors[field.name]
+                              ? "error"
+                              : "border-gray-300 bg-white"
+                          }`}
+                          autoComplete="off"
+                          {...formField}
+                          onChange={(e) => {
+                            formField.onChange(e);
+                            handleInputChange(e);
+                          }}
+                        />
+                      )}
                     </FormControl>
                     <FormMessage />
                   </FormItem>
